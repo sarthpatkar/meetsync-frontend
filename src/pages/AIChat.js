@@ -6,7 +6,6 @@ import api from "../api/axiosConfig";
 import { toast } from "react-toastify";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { generateImage } from "../api/axiosConfig"; 
 
 function AIChat() {
   const [input, setInput] = useState("");
