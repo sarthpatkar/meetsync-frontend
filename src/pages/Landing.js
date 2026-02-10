@@ -3,12 +3,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaEnvelope, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6"; // For the new X logo
-import { FiMenu, FiX, FiMoon, FiSun } from "react-icons/fi"; // ADD THIS at top with imports
+import { FiMenu, FiX } from "react-icons/fi"; // Only import FiMenu and FiX
 
 function Landing() {
   const [openIndex, setOpenIndex] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false); // NEW
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode] = useState(false);
 
   useEffect(() => {
     if (darkMode) {
