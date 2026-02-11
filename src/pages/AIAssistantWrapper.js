@@ -9,6 +9,7 @@ function AIAssistantWrapper() {
   const [superMode, setSuperMode] = useState(false);
   const [celebrating, setCelebrating] = useState(false);
   const [isOn, setIsOn] = useState(false);
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   const handleToggle = () => {
     if (isOn) return; // prevent multiple clicks
@@ -45,7 +46,7 @@ function AIAssistantWrapper() {
 
             {/* ⚡ Vertical scanning streaks */}
             <div className="absolute inset-0 pointer-events-none">
-              {[...Array(12)].map((_, i) => (
+              {[...Array(isMobile ? 4 : 12)].map((_, i) => (
                 <motion.div
                   key={i}
                   className="absolute w-[2px] h-[140%] top-[-20%] bg-gradient-to-b from-cyan-400/30 to-transparent"
@@ -67,7 +68,7 @@ function AIAssistantWrapper() {
 
             {/* 💠 Rotating neon rings */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              {[...Array(3)].map((_, i) => (
+              {[...Array(isMobile ? 1 : 3)].map((_, i) => (
                 <motion.div
                   key={i}
                   className="absolute rounded-full border border-cyan-400/20"
@@ -88,7 +89,7 @@ function AIAssistantWrapper() {
 
             {/* 🔷 Diagonal glowing sweeps */}
             <div className="absolute inset-0 pointer-events-none">
-              {[...Array(8)].map((_, i) => (
+              {[...Array(isMobile ? 3 : 8)].map((_, i) => (
                 <motion.div
                   key={i}
                   className="absolute h-[2px] w-[180%] bg-gradient-to-r from-fuchsia-400/40 via-cyan-400/30 to-transparent"
@@ -123,7 +124,7 @@ function AIAssistantWrapper() {
 
             {/* ✨ Floating particles */}
             <div className="absolute inset-0 pointer-events-none">
-              {[...Array(20)].map((_, i) => (
+              {[...Array(isMobile ? 6 : 20)].map((_, i) => (
                 <motion.div
                   key={i}
                   initial={{
@@ -166,7 +167,7 @@ function AIAssistantWrapper() {
 
             {/* ⚡ Cyberpunk glowing circuit lines */}
             <div className="absolute inset-0 pointer-events-none">
-              {[...Array(6)].map((_, i) => (
+              {[...Array(isMobile ? 2 : 6)].map((_, i) => (
                 <motion.div
                   key={i}
                   className="absolute h-[2px] w-[130%] neon-line"
@@ -183,7 +184,7 @@ function AIAssistantWrapper() {
                   }}
                 />
               ))}
-              {[...Array(6)].map((_, i) => (
+              {[...Array(isMobile ? 2 : 6)].map((_, i) => (
                 <motion.div
                   key={`vert-${i}`}
                   className="absolute w-[2px] h-[130%] neon-line-vert"
@@ -214,8 +215,8 @@ function AIAssistantWrapper() {
               }}
               className="relative z-10 rounded-full overflow-hidden flex items-center justify-center"
               style={{
-                width: 420,
-                height: 420,
+                width: isMobile ? 260 : 420,
+                height: isMobile ? 260 : 420,
                 boxShadow:
                   "0 30px 80px rgba(0,0,0,0.6), inset 0 0 120px rgba(2,10,30,0.6)",
               }}
@@ -243,7 +244,7 @@ function AIAssistantWrapper() {
                   position: "absolute",
                   inset: "-12%",
                   borderRadius: "50%",
-                  filter: "blur(70px)",
+                  filter: isMobile ? "blur(30px)" : "blur(70px)",
                   background:
                     "radial-gradient(circle, rgba(0,200,255,0.25), rgba(0,0,0,0))",
                 }}
