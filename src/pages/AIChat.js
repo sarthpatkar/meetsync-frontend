@@ -202,7 +202,7 @@ function AIChat() {
 
   return (
     <div
-      className={`min-h-screen flex flex-col items-center p-6 ${
+      className={`h-screen overflow-hidden flex flex-col items-center p-6 ${
         darkMode ? "bg-black text-white" : "bg-[#f9f9f9] text-black"
       }`}
     >
@@ -248,7 +248,8 @@ function AIChat() {
         {/* Messages */}
         <div
           ref={chatContainerRef}
-          className="flex-1 overflow-y-auto p-6 space-y-6 relative"
+          className="flex-1 overflow-y-auto overscroll-contain p-6 space-y-6 relative"
+          style={{ WebkitOverflowScrolling: "touch" }}
         >
           {messages.map((msg, index) => (
             <motion.div
@@ -571,5 +572,4 @@ function AIChat() {
     </div>
   );
 }
-
 export default AIChat;
